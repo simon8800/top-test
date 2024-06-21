@@ -72,7 +72,7 @@ function shiftHelper(charCode, shiftFactor) {
       newCode <= 90
         ? String.fromCharCode(newCode)
         : String.fromCharCode(
-            newCode - upperCaseUpperBound + upperCaseLowerBound - 1
+            upperCaseLowerBound - 1 + (newCode % upperCaseUpperBound)
           );
     // handle lowercase
   } else if (
@@ -83,7 +83,7 @@ function shiftHelper(charCode, shiftFactor) {
       newCode <= 122
         ? String.fromCharCode(newCode)
         : String.fromCharCode(
-            newCode - lowerCaseUpperBound + lowerCaseLowerBound - 1
+            lowerCaseLowerBound - 1 + (newCode % lowerCaseUpperBound)
           );
   }
   return newChar;
